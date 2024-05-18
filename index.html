@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>to do list</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <main>
+      <!-- start -->
+      <div class="start"></div>
+      <button id="close" class="btn">make your own to do list</button>
+      <!-- to do list -->
+      <div class="total">
+        <input id="inp" type="text" placeholder="please inter your task ..." />
+        <button id="btn">add</button>
+        <section class="paper">
+          <!-- list -->
+          <h1>My Tasks</h1>
+          <ul id="list"></ul>
+        </section>
+        <!-- motivation phrase -->
+        <section class="calender">Be disciplined, a goal without a plan is just a wish...</section>
+      </div>
+    </main>
+    <!-- start js -->
+    <script>
+      // start //
+      let num = 0;
+      document.getElementById("close").addEventListener("click", (e) => {
+        e.target.previousElementSibling.remove();
+        e.target.remove();
+      });
+
+      const _add = document.querySelector("#btn");
+      const list = document.querySelector("#list");
+      const inp = document.querySelector("#inp");
+      //     check inp & add    //
+      _add.addEventListener("click", function () {
+        if (inp.value != "") {
+          let li = document.createElement("li");
+          li.classList.add(".row");
+          li.innerHTML = `
+              <input onclick='_tick(this)' type="checkbox" id="check${num}" />
+              <label for='check${num}'>${inp.value}</label>
+              <input class='hide inp2' ></input>
+              <button onclick='replace(this)' class='hide btn2' > change task</button>
+              <span id='change' onclick='_edit(this)' class="s1">edit</span>
+              <span class="s2" onclick='_delete(this)'>delete</span>`;
+          list.appendChild(li);
+          inp.focus();
+          num++;
+          inp.value = null;
+        } else {
+          alert("please inter your task ...");
+        }
+      });
+      //   edite tasks   //
+      const _delete = (f) => f.parentElement.remove();
+      const _tick = (s) =>
+        s.checked ? (s.nextElementSibling.style.textDecoration = "line-through") : (s.nextElementSibling.style.textDecoration = "none");
+      const _edit = (s) => {
+        s.previousElementSibling.classList.remove("hide");
+        s.previousElementSibling.previousElementSibling.classList.remove("hide");
+        let newtask = s.previousElementSibling.previousElementSibling.previousElementSibling.innerHTML;
+        s.previousElementSibling.previousElementSibling.previousElementSibling.innerHTML = "";
+        s.previousElementSibling.previousElementSibling.value = newtask;
+      };
+      const replace = (s) => {
+        let _new = s.previousElementSibling.value;
+        s.previousElementSibling.previousElementSibling.innerHTML = _new;
+        s.previousElementSibling.classList.add("hide");
+        s.classList.add("hide");
+      };
+    </script>
+  </body>
+</html>
