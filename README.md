@@ -2,10 +2,9 @@
 
 - [Demo Project](https://fatemeimani8118.github.io/to-do-list/)
 
-![1](https://github.com/fatemeimani8118/to-do-list/assets/137331610/90b1c4d2-587a-4e77-8b64-7d2ab7beff31)
+![Screenshot 2024-05-18 224025](https://github.com/fatemeimani8118/to-do-list/assets/137331610/8778766f-65dd-493f-9b1b-9f593c6407e2)
 
-![2](https://github.com/fatemeimani8118/to-do-list/assets/137331610/da9679c8-f927-41e4-b1ae-5a596bc30f7d)
-
+![Screenshot 2024-05-18 224233](https://github.com/fatemeimani8118/to-do-list/assets/137331610/ff17c5f8-bbc5-4542-aa90-d468122d2b97)
 
 - Developed by fateme imani
 
